@@ -9,7 +9,7 @@ HERMES_HOME = os.path.expanduser("~/.hermes")
 SKILLS_DIR = os.path.join(HERMES_HOME, "skills")
 WORKSPACE_DIR = "/root/hermes-workspace"
 SWARM_YAML = os.path.join(WORKSPACE_DIR, "swarm.yaml")
-CSV_PATH = os.path.join(os.path.dirname(__file__), "swarm-agents.csv")
+CSV_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), "swarm-agents.csv")
 
 def load_agents(csv_path):
     agents = []
@@ -71,7 +71,7 @@ def main():
     print(f"Loaded {len(agents)} agents from swarm-agents.csv\n")
     
     # Install skills
-    repo_skills = os.path.join(os.path.dirname(__file__), "skills")
+    repo_skills = os.path.join(os.path.dirname(os.path.dirname(__file__)), "skills")
     if os.path.isdir(repo_skills):
         print("Installing skills...")
         installed = install_skills(repo_skills)
